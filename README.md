@@ -51,4 +51,4 @@ node scripts/source-archive.mjs --repository "<absolute-reviewed-repository>" --
 
 helper 只接受 `scripts/source-files.mjs` 的 source 白名單，先比 ZIP 每個檔案與真正 Git blob bytes，再建立新 ZIP/解壓目錄；從解壓副本重新執行上述 test/check/preview/production gates。ZIP 不含 dist、快取、.runs、node_modules、Git metadata 或私人測試證據。
 
-公開來源審閱目標：[KYStr/glossquote-labs-work-hours](https://github.com/KYStr/glossquote-labs-work-hours)。正式 URL 是部署候選，公開 source 不表示正式站已部署；上線後仍需外部驗收。
+公開來源審閱：[KYStr/glossquote-labs-work-hours](https://github.com/KYStr/glossquote-labs-work-hours)。正式 URL 是部署候選，公開 source 不表示正式站已部署；上線後仍需外部驗收。

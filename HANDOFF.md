@@ -103,3 +103,9 @@ Production固定origin及兩語self canonical/zh-Hant/en/x-default、OG、WebApp
 真IAB自建tab2：兩語讀取DOM canonical/alternates/robots/JSON-LD，載範例再計算450分鐘/7.50，英文修改break後舊結果清空/copy停用；實際404有兩語返回入口且可返回英文工具，error/warn logs空陣列。Browser engine version未暴露。這是本機production候選，不是正式Cloudflare live證據；先前人工Network/Storage/nativeclipboard/真zoom/讀屏/手機等NOT_RUN保留。
 
 此段時點：必要本機候選PASS，43檔reviewed copy已建立，GitHub/固定ZIP驗證尚待執行；後續來源發布紀錄另append，不改寫歷史。公開copy只含source whitelist，不含dist/.runs/node_modules/Git metadata/輸入/secret，沒有自行加入license。
+
+### M2 首次來源發布 — 2026-10-13
+
+實際公開repo：[KYStr/glossquote-labs-work-hours](https://github.com/KYStr/glossquote-labs-work-hours)，GH API確認owner KYStr/visibility PUBLIC，remote HEAD與`codex/work-hours-release`指向 **`03b1c7bb56237d94b59d3cf94cbea4534d61fb7e`**。這是已驗實作commit，43檔逐Git blob bytes與本工具 source 一致（`reviewed-first-commit.json`）；只在獨立reviewed copy初始化/提交/push，沒有force、根Git或新credential權限。
+
+本次採codex/分支前綴，commit用已驗public GitHub account ID的noreply email，未讀私人email或印token；未加license。首次push成功後紀錄真實PUBLIC/SHA，再以僅文件/狀態變更的commit保存此紀錄。最終publication HEAD與ZIP不在待生成的commit內自我引用；會在宿主最新HANDOFF与專用外部manifest紀錄。當前ZIP/解壓候選驗證尚待執行，hosting/home/external review未執行。

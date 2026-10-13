@@ -14,7 +14,7 @@
   "subdomain": "hours",
   "port": 4198,
   "spikePort": 5198,
-  "sourceStatus": "not-published",
+  "sourceStatus": "published-public-candidate",
   "hostingStatus": "not-deployed",
   "externalReviewStatus": "not-run",
   "version": "0.1.0",
@@ -27,5 +27,10 @@
   "evidenceDirectory": ".runs/work-hours/m1-20261013-01",
   "sourceManifest": ".runs/work-hours/m1-20261013-01/source-manifest-final.json",
   "codeDigest": "361eb9b63226eb63a41003350831c64f4505e070f4c197eb96c96fee8449acef",
-  "runtimeDigest": "bebb47dc26ace43a03dffbf56c68d37e81857878b89e69a8cc1170ac92c3e36f"
+  "runtimeDigest": "d3c75e458d241276ecb47883a7689a29bee2569f964a95791dd9466a16d98ac1",
+  "sourceRepositoryUrl": "https://github.com/KYStr/glossquote-labs-work-hours",
+  "sourceVisibility": "PUBLIC",
+  "verifiedImplementationCommit": "03b1c7bb56237d94b59d3cf94cbea4534d61fb7e",
+  "sourceBranch": "codex/work-hours-release",
+  "productionDigest": "59e27b4f4fd1faeeb49887020ab31137e14cbfa09cc62f74ded2c8dea6df48ad"
 }
