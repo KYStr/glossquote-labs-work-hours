@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="填入工作日期、開始與結束時間及休息分鐘，在瀏覽器本機加總每段、每天與整批工時。支援跨日並提醒重疊時段，無需帳號。">
+  <title>工時加總：扣除休息、跨日與每日小計 | GlossQuote</title>
+  <link rel="stylesheet" href="styles/app.css">
+  <script type="module" src="js/app.mjs"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到工時工作表</a>
+  <header class="topbar">
+    <a class="brand" href="https://glossquote.com/index.html">GlossQuote</a>
+    <nav aria-label="語言"><a href="en/index.html" lang="en" hreflang="en">English</a></nav>
+  </header>
+  <main id="main">
+    <div class="intro">
+      <div><h1>工時加總</h1><p>不用把分鐘換成小數；填入各段時間、扣除休息，就能取得時分與十進位小時計。</p></div>
+      <button id="example" type="button" class="button secondary">載入範例</button>
+    </div>
+    <p class="working-rule">跨日時段全部歸開始日期。依輸入的鐘面分鐘計算，沒有時區或夏令時間調整。</p>
+    <noscript><p>請啟用 JavaScript 以在此頁計算工時。資料只在瀏覽器處理。</p></noscript>
+    <form id="worksheet" novalidate autocomplete="off">
+      <div class="worksheet-heading"><h2>工作時段</h2><p id="row-count"></p></div>
+      <div id="entries"></div>
+      <div class="actions">
+        <button id="add" type="button" class="button secondary">新增時段</button>
+        <div class="calculate-actions"><button id="clear" type="button" class="button quiet">清除</button><button id="calculate" type="submit" class="button primary">加總工時</button></div>
+      </div>
+    </form>
+    <p id="status" class="status" role="status" aria-live="polite" aria-atomic="true">填入開始與結束時間，再加總。</p>
+    <div id="errors" class="errors" hidden></div>
+    <section id="results" aria-labelledby="result-title" hidden>
+      <div class="result-heading"><div><h2 id="result-title">總工時</h2><p id="total-duration" class="total-duration"></p></div><button id="copy" type="button" class="button secondary" disabled>複製報告</button></div>
+      <dl class="total-info"><div><dt>十進位小時</dt><dd id="total-decimal"></dd></div><div><dt>總分鐘</dt><dd id="total-minutes"></dd></div></dl>
+      <div id="result-details"></div>
+      <div class="report-block"><label for="report">完整文字報告</label><p id="report-hint">可直接選取文字，手動複製。清除頁面不會刪除系統剪貼簿。</p><textarea id="report" readonly rows="8" aria-describedby="report-hint" spellcheck="false"></textarea><p id="copy-status" role="status" aria-live="polite" aria-atomic="true"></p></div>
+    </section>
+    <section class="help" aria-labelledby="help-title">
+      <h2 id="help-title">用法與計算規則</h2>
+      <p>每段填入開始日期、開始與結束時間及休息分鐘，跨日請勾選「結束在次日」，再按「加總工時」。日期範圍為 2000–2099 年；每段最多 24 小時，最多 62 段。相接時段可加總，重疊時段請先修正。</p>
+      <h3>如何計算跨日？</h3><p>勾選「結束在次日」。例如 22:00 到次日 02:00 是 4 小時；扣除 30 分鐘休息後為 3 小時 30 分。整段歸開始日期，不拆成兩天。</p>
+      <h3>為何重疊時段不給總計？</h3><p>避免同一分鐘算兩次。休息只有總分鐘、沒有開始與結束位置，不能用來移除時段重疊。09:00–12:00 與 12:00–13:00 相接，可以加總。</p>
+      <h3>7.50 代表 7 小時 50 分嗎？</h3><p>7.50 十進位小時是 7 小時 30 分。結果會分別顯示時分與小數小時；所有分鐘先加總，再將小時四捨五入至兩位小數。</p>
+      <h3>工資或夏令時間有算嗎？</h3><p>只算輸入的鐘面時間，沒有時區或夏令時間調整，也不決定工資、加班或法律出勤規則。</p>
+      <h3>資料有保存嗎？</h3><p>時段只在此頁記憶體；不儲存或上傳工作內容，離頁會清空。複製由你按下按鈕才發起，頁面不讀取剪貼簿。網頁載入仍會與託管主機連線。</p>
+    </section>
+  </main>
+  <footer><a href="https://glossquote.com/index.html">返回 GlossQuote 工具首頁</a><span>Gloss Tools by GlossQuote</span></footer>
+</body>
+</html>

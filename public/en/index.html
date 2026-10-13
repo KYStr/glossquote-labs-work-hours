@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="description" content="Add work intervals and deduct breaks locally in your browser. See entry, daily and total hours, handle overnight shifts and catch overlapping entries without an account.">
+  <title>Work Hours Calculator: Breaks &amp; Overnight Shifts | GlossQuote</title>
+  <link rel="stylesheet" href="../styles/app.css">
+  <script type="module" src="../js/app.mjs"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to the work-hours worksheet</a>
+  <header class="topbar">
+    <a class="brand" href="https://glossquote.com/en/index.html">GlossQuote</a>
+    <nav aria-label="Language"><a href="../index.html" lang="zh-Hant" hreflang="zh-Hant">繁體中文</a></nav>
+  </header>
+  <main id="main">
+    <div class="intro">
+      <div><h1>Work Hours Calculator</h1><p>Enter your work intervals and breaks. Get hours and minutes plus decimal hours without converting each entry yourself.</p></div>
+      <button id="example" type="button" class="button secondary">Load example</button>
+    </div>
+    <p class="working-rule">Overnight entries belong entirely to their start date. Clock-time minutes, without time-zone or daylight-saving adjustments.</p>
+    <noscript><p>Enable JavaScript to calculate hours on this page. Entries are processed in your browser.</p></noscript>
+    <form id="worksheet" novalidate autocomplete="off">
+      <div class="worksheet-heading"><h2>Work entries</h2><p id="row-count"></p></div>
+      <div id="entries"></div>
+      <div class="actions">
+        <button id="add" type="button" class="button secondary">Add entry</button>
+        <div class="calculate-actions"><button id="clear" type="button" class="button quiet">Clear</button><button id="calculate" type="submit" class="button primary">Calculate hours</button></div>
+      </div>
+    </form>
+    <p id="status" class="status" role="status" aria-live="polite" aria-atomic="true">Enter start and end times, then calculate hours.</p>
+    <div id="errors" class="errors" hidden></div>
+    <section id="results" aria-labelledby="result-title" hidden>
+      <div class="result-heading"><div><h2 id="result-title">Total hours</h2><p id="total-duration" class="total-duration"></p></div><button id="copy" type="button" class="button secondary" disabled>Copy report</button></div>
+      <dl class="total-info"><div><dt>Decimal hours</dt><dd id="total-decimal"></dd></div><div><dt>Total minutes</dt><dd id="total-minutes"></dd></div></dl>
+      <div id="result-details"></div>
+      <div class="report-block"><label for="report">Full text report</label><p id="report-hint">Select this text to copy manually. Clearing this page does not erase the system clipboard.</p><textarea id="report" readonly rows="8" aria-describedby="report-hint" spellcheck="false"></textarea><p id="copy-status" role="status" aria-live="polite" aria-atomic="true"></p></div>
+    </section>
+    <section class="help" aria-labelledby="help-title">
+      <h2 id="help-title">How to use and calculation rules</h2>
+      <p>Enter a start date, start and end times, and break minutes for each entry. Select “Ends next day” for overnight work, then “Calculate hours.” Start dates range from 2000 to 2099, with up to 62 entries of at most 24 hours each. Adjacent entries are allowed; correct any overlaps first.</p>
+      <h3>How are overnight entries calculated?</h3><p>Select “Ends next day.” For example, 22:00 to 02:00 the next day is 4 hours, or 3 hours 30 minutes after a 30-minute break. The entire entry belongs to its start date, without splitting it between days.</p>
+      <h3>Why is there no total for overlapping entries?</h3><p>Overlaps are rejected to avoid counting time twice. Break totals do not specify a break interval, so they cannot remove an overlap. Adjacent entries such as 09:00–12:00 and 12:00–13:00 are allowed.</p>
+      <h3>Does 7.50 mean 7 hours 50 minutes?</h3><p>No. 7.50 decimal hours equals 7 hours 30 minutes. Both formats are shown. All minutes are added first, then decimal hours are rounded to two places.</p>
+      <h3>Are pay or daylight-saving rules included?</h3><p>This totals entered clock times without time-zone or daylight-saving adjustments. It does not determine pay, overtime or legal attendance rules.</p>
+      <h3>Are my entries saved?</h3><p>Entries stay in this page’s memory, without saving or uploading work content. Leaving clears them. Copying requires your action; the page does not read the clipboard. Loading the page still connects to the hosting service.</p>
+    </section>
+  </main>
+  <footer><a href="https://glossquote.com/en/index.html">Back to GlossQuote tools</a><span>Gloss Tools by GlossQuote</span></footer>
+</body>
+</html>
